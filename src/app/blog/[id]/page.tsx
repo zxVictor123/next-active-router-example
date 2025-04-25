@@ -2,7 +2,13 @@ import React from 'react'
 import { Card, Space } from 'antd';
 import { data } from '@/data';
 import { Props } from './type';
+import { dataParams } from '../type';
 
+export async function generateMetadata({ params }: {params: dataParams}) {
+    return {
+      title: `博客列表--${params.id}`,
+    }
+  }
 
 export default function Page({ params }: Props) {
   const post = data.find(item => item.id === parseInt(params.id))

@@ -1,21 +1,13 @@
-'use client'
 import React from 'react';
-import { Avatar, List } from 'antd';
-import { data } from '@/data';
+import BlogList from '@/components/BlogList';
+import type { Metadata } from 'next'
+ 
 
+export const metadata: Metadata = {
+  title: '博客列表',
+}
 const Home: React.FC = () => (
-  <List
-    itemLayout="horizontal"
-    dataSource={data}
-    renderItem={(item, index) => (
-      <List.Item>
-        <List.Item.Meta className='!items-center'
-          avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
-          title={<a href={ `/blog/${item.id}`}>{item.title}</a>}
-        />
-      </List.Item>
-    )}
-  />
+  <BlogList/>
 );
 
 export default Home;
